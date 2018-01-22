@@ -67,9 +67,9 @@ class MyThreadPool():
         # 在每一次put时会给一个内部数加一，表示收到一个任务
         self.queue.put(task)
     def join(self):
-        # 阻塞
+        # 阻塞，直到queue中的数据均被删除或者处理。为队列中的每一项都调用一次。
         self.queue.join()
-
+        # 所有数据被get并不会解除 join 阻塞，只有全部数据都被处理完（task_done调用次数等于get次数）了才会 解除 join 阻塞。
     def close(self):
         pass
 
