@@ -14,3 +14,7 @@ Python解释器执行代码时，有一个**GIL** (Global Interpreter Lock) 锁�
 ## 线程池
 
 Python中线程与进程使用的同一模块 multiprocessing。使用方法也基本相同，唯一不同的是，from multiprocessing import Pool这样导入的Pool表示的是进程池；from multiprocessing.dummy import Pool这样导入的Pool表示的是线程池。这样就可以实现线程里面的并发了。
+
+## 线程锁
+
+多线程和多进程最大的不同在于，多进程中，同一个变量，各自有一份拷贝存在于每个进程中，互不影响，而多线程中，所有变量都由所有线程共享，所以，任何一个变量都可以被任何一个线程修改，因此，线程之间共享数据最大的危险在于多个线程同时改一个变量。
